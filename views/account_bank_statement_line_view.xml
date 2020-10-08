@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2019 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="bank_statement_line_invoice" model="ir.ui.view">
+            <field name="name">bank.statement.line.invoice</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="account.view_bank_statement_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='date']" position="after">
+                    <field name="invoice_id" attrs="{'readonly' : [('journal_entry_ids', '!=', [])] }" options="{'no_create': True}"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='amount']" position="before">
+                    <field name="residual"/>
+                </xpath>
+                
+            </field>
+     </record>
+</odoo>
