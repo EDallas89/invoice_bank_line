@@ -12,7 +12,8 @@ class AccountBankStatementLine(models.Model):
                                  string='Invoice',
                                  domain=[('state', 'in', ('open', 'paid'))])
     
-    residual = fields.Monetary(string='Amount Due')
+    residual = fields.Monetary(string='Amount Due',
+                               related='invoice_id.residual_signed')
 
     @api.onchange('invoice_id')
     def _onchange_invoice(self):
