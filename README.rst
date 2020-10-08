@@ -3,7 +3,7 @@
    :alt: License: AGPL-3
 
 ======================
-Invoice in cash statement lines
+Invoice and Amount Due in cash statement lines
 ======================
 
 This module adds invoice for fast selection in Bank Statement Lines.
